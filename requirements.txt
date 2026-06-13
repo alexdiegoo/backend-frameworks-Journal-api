@@ -4,3 +4,10 @@ djangorestframework==3.17.1
 djangorestframework_simplejwt==5.5.1
 PyJWT==2.13.0
 sqlparse==0.5.5
+
+# Produção (deploy no Render)
+gunicorn==21.2.0
+dj-database-url==2.1.0
+psycopg2-binary==2.9.9
+whitenoise==6.6.0
+python-decouple==3.8
