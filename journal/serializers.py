@@ -10,8 +10,21 @@ class JournalEntrySerializer(serializers.ModelSerializer):
         fields = [
             'id', 'author',
             'title', 'content',
-            'mood', 'created_at',
+            'mood', 'is_public', 'created_at',
         ]
         read_only_fields = [
             'created_at',
+        ]
+
+
+class PublicJournalEntrySerializer(serializers.ModelSerializer):
+    """Versão somente-leitura para o feed público (sem login)."""
+    author = serializers.ReadOnlyField(source='author.username')
+
+    class Meta:
+        model = JournalEntry
+        fields = [
+            'id', 'author',
+            'title', 'content',
+            'mood', 'created_at',
         ]

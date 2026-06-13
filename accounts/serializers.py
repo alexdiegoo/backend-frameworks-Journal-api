@@ -20,3 +20,11 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """Dados do usuário logado (endpoint /api/me/)."""
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'date_joined']
